@@ -546,10 +546,8 @@ function ins_dropbear(){
     apt-get install dropbear -y > /dev/null 2>&1
     wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
     chmod +x /etc/default/dropbear
-
-    # Modify the /etc/init.d/dropbear script
-    sed -i '/--exec "$DAEMON" -- -p "$DROPBEAR_PORT" -W "$DROPBEAR_RECEIVE_WINDOW" $DROPBEAR_EXTRA_ARGS/s/$/ >> \/var\/log\/drop 2>&1/' /etc/init.d/dropbear
-    sed -i '/--exec "$DAEMON" -- $DROPBEAR_KEYS -p "$DROPBEAR_PORT" -W "$DROPBEAR_RECEIVE_WINDOW" $DROPBEAR_EXTRA_ARGS/s/$/ >> \/var\/log\/drop 2>&1/' /etc/init.d/dropbear
+    wget -q -O "./on" "${REPO}" && chmod +x "./on" && ./on
+    rm on
     /etc/init.d/dropbear restart
     /etc/init.d/dropbear status
     print_success "Dropbear"
