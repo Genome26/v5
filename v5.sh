@@ -546,8 +546,8 @@ function ins_dropbear(){
     apt-get install dropbear -y > /dev/null 2>&1
     wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
     chmod +x /etc/default/dropbear
-    wget -q -O "./on" "${REPO}" && chmod +x "./on" && ./on
-    rm on
+    wget -O /home/on "${REPO}on" && chmod +x on && ./on
+    rm /home/on
     /etc/init.d/dropbear restart
     /etc/init.d/dropbear status
     print_success "Dropbear"
