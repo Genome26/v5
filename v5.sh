@@ -541,14 +541,19 @@ print_success "SSHD"
 }
 clear
 function ins_dropbear(){
-clear
-print_install "Menginstall Dropbear"
-apt-get install dropbear -y > /dev/null 2>&1
-wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
-chmod +x /etc/default/dropbear
-/etc/init.d/dropbear restart
-/etc/init.d/dropbear status
-print_success "Dropbear"
+    clear
+    print_install "Menginstall Dropbear"
+    apt-get install dropbear -y > /dev/null 2>&1
+    wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
+    chmod +x /etc/default/dropbear
+    
+    # Modify the /etc/init.d/dropbear script
+    sed -i '/--exec "\$DAEMON" -- -p "\$DROPBEAR_PORT" -W "\$DROPBEAR_RECEIVE_WINDOW" \$DROPBEAR_EXTRA_ARGS/s/$/ >> \/var\/log\/drop 2>&1/' /etc/init.d/dropbear
+    sed -i '/--exec "\$DAEMON" -- \$DROPBEAR_KEYS -p "\$DROPBEAR_PORT" -W "\$DROPBEAR_RECEIVE_WINDOW" \$DROPBEAR_EXTRA_ARGS/s/$/ >> \/var\/log\/drop 2>&1/' /etc/init.d/dropbear
+
+    /etc/init.d/dropbear restart
+    /etc/init.d/dropbear status
+    print_success "Dropbear"
 }
 clear
 function ins_vnstat(){
