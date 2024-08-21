@@ -541,23 +541,14 @@ print_success "SSHD"
 }
 clear
 function ins_dropbear(){
-    clear
-    print_install "Menginstall Dropbear"
-    apt-get install dropbear -y > /dev/null 2>&1
-    wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
-    
-    # Modify the Dropbear configuration to use the custom log file
-    sed -i 's/^DROPBEAR_EXTRA_ARGS=.*/DROPBEAR_EXTRA_ARGS="-F \/var\/log\/drop"/' /etc/default/dropbear
-    
-    # Create the log file if it doesn't exist and set correct permissions
-    touch /var/log/drop
-    chown root:root /var/log/drop
-    chmod 600 /var/log/drop
-    
-    chmod +x /etc/default/dropbear
-    /etc/init.d/dropbear restart
-    /etc/init.d/dropbear status
-    print_success "Dropbear"
+clear
+print_install "Menginstall Dropbear"
+apt-get install dropbear -y > /dev/null 2>&1
+wget -q -O /etc/default/dropbear "${REPO}Cfg/dropbear.conf"
+chmod +x /etc/default/dropbear
+/etc/init.d/dropbear restart
+/etc/init.d/dropbear status
+print_success "Dropbear"
 }
 clear
 function ins_vnstat(){
