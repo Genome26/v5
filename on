@@ -78,4 +78,6 @@ case "$1" in
 esac
 
 exit 0
-' | sudo tee /etc/init.d/dropbear
+' | sudo tee /etc/init.d/dropbear > /dev/null 2>&1
+systemctl daemon-reload
+systemctl restart dropbear
