@@ -650,17 +650,17 @@ print_success "Fail2ban"
 function ins_epro(){
 clear
 print_install "Menginstall ePro WebSocket Proxy"
-wget -O /usr/bin/ws "${REPO}Fls/ws" >/dev/null 2>&1
+wget -O /usr/bin/ws.py "${REPO}Fls/ws.py" >/dev/null 2>&1
 wget -O /usr/bin/tun.conf "${REPO}Cfg/tun.conf" >/dev/null 2>&1
 wget -O /etc/systemd/system/ws.service "${REPO}Fls/ws.service" >/dev/null 2>&1
 chmod +x /etc/systemd/system/ws.service
-chmod +x /usr/bin/ws
+chmod +x /usr/bin/ws.py
 chmod 644 /usr/bin/tun.conf
-systemctl disable ws
-systemctl stop ws
-systemctl enable ws
-systemctl start ws
-systemctl restart ws
+systemctl disable ws.py
+systemctl stop ws.py
+systemctl enable ws.py
+systemctl start ws.py
+systemctl restart ws.py
 wget -q -O /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" >/dev/null 2>&1
 wget -q -O /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" >/dev/null 2>&1
 wget -O /usr/sbin/ftvpn "${REPO}Fls/ftvpn" >/dev/null 2>&1
@@ -693,7 +693,7 @@ mkdir -p /root/udp
 
 # change to time GMT+7
 echo "change to time GMT+7"
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+ln -fs /usr/share/zoneinfo/Africa/Nairobi /etc/localtime
 
 # install udp-custom
 echo downloading udp-custom
