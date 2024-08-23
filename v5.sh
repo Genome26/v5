@@ -650,11 +650,11 @@ print_success "Fail2ban"
 function ins_epro(){
 clear
 print_install "Menginstall ePro WebSocket Proxy"
-wget -O /usr/bin/ws.py "${REPO}Fls/ws.py" >/dev/null 2>&1
+wget -O /usr/bin/ws "${REPO}Fls/ws" >/dev/null 2>&1
 wget -O /usr/bin/tun.conf "${REPO}Cfg/tun.conf" >/dev/null 2>&1
 wget -O /etc/systemd/system/ws.service "${REPO}Fls/ws.service" >/dev/null 2>&1
 chmod +x /etc/systemd/system/ws.service
-chmod +x /usr/bin/ws.py
+chmod +x /usr/bin/ws
 chmod 644 /usr/bin/tun.conf
 systemctl disable ws
 systemctl stop ws
