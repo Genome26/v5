@@ -551,6 +551,41 @@ function ins_dropbear(){
     /etc/init.d/dropbear status
     print_success "Dropbear"
 }
+
+# Other setup commands
+echo "Setting up other services..."
+
+# Logrotate setup
+LOGROTATE_CONF="/etc/logrotate.d/drop"
+LOG_FILE="/var/log/drop"
+
+# Create logrotate configuration file
+cat <<EOL | sudo tee $LOGROTATE_CONF > /dev/null
+$LOG_FILE {
+    daily
+    rotate 4
+    compress
+    delaycompress
+    notifempty
+    create 0640 root root
+    dateext
+    su root root
+}
+EOL
+
+# Set the correct permissions for the logrotate configuration file
+sudo chmod 644 $LOGROTATE_CONF
+sudo chown root:root $LOGROTATE_CONF
+
+# Verify the setup
+echo "Verifying logrotate configuration..."
+sudo logrotate -d $LOGROTATE_CONF
+
+echo "Logrotate configuration for $LOG_FILE has been set up and verified."
+
+# Additional setup commands
+echo "Continuing with other tasks..."
+
 clear
 function ins_vnstat(){
 clear
