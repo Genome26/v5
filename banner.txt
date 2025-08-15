@@ -17,26 +17,11 @@
     <span style="color:#B2FFB2;">           ' I ' </span><br>
 </div>
 
-<p style="text-align:center; color:#32CD32; font-weight:bold;">
-    <font size="7">༺ GEEK•TECH ༺</font>
-</p>
+<h1 style="text-align:center;"><font color="#32CD32">༺ GEEK•TECH ༺</font></h1>
+<h3 style="text-align:center;"><font color="#FFA500">UNLIMITED DATA</font></h3>
+<h4 style="text-align:center;"><font color="#228B22">✓ FAST CONNECTION</font></h4>
+<h4 style="text-align:center;"><font color="#FFA500">✓ 24/7 SUPPORT</font></h4>
+<h4 style="text-align:center;"><font color="#228B22">✓ SECURE NETWORK</font></h4>
+<h4 style="text-align:center;"><font color="#FFA500">✓ Contact: 0795041454</font></h4>
+<h4 style="text-align:center;"><font color="#FFA500">• Join for more files  like this <br>https://chat.whatsapp.com/IuXqU4cdhTV9yeU2tMZ7Z3?mode=ac_t</font></h4>
 
-<p style="text-align:center; color:#FFA500; font-weight:bold;">
-    <font size="4">UNLIMITED DATA</font>
-</p>
-
-<p style="text-align:center; color:#228B22;">
-    <font size="3">✓ FAST CONNECTION</font>
-</p>
-
-<p style="text-align:center; color:#FFA500;">
-    <font size="3">✓ 24/7 SUPPORT</font>
-</p>
-
-<p style="text-align:center; color:#228B22;">
-    <font size="3">✓ SECURE NETWORK</font>
-</p>
-
-<p style="text-align:center; color:#FFA500;">
-    <font size="3">Contact: 0795041454</font>
-</p>
